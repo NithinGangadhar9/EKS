@@ -11,3 +11,13 @@ nodeGroups:
     desiredCapacity: 2
     ssh:
       publicKeyName: ec2-user
+  - name: ng-mixed
+    minSize: 2
+    maxSize: 5
+    instanceDistribution: 
+      maxPrice: 0.2
+      instanceType: ["t2.small" , "t2.micro"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 50
+    ssh:
+      publicKeyName: ec2-user
