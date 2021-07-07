@@ -13,9 +13,9 @@ nodeGroups:
       publicKeyName: ec2-user
       allow: true
 
-#cloudWatch: # Enable CloudWatch logging 
-#  clusterLogging:
-#    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services, user ['*'] Controller Manager, Scheduler
+cloudWatch: # Enable CloudWatch logging 
+  clusterLogging:
+    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services, user ['*'] Controller Manager, Scheduler
 
 
 
