@@ -18,9 +18,9 @@ nodeGroups:
       publicKeyName: ec2-user
       allow: true # To allow SSH
 
-#cloudWatch: # Enable CloudWatch logging 
-#  clusterLogging:
-#    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services, user ['*'] Controller Manager, Scheduler
+cloudWatch: # Enable CloudWatch logging 
+  clusterLogging:
+    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services, user ['*'] Controller Manager, Scheduler
 
 # Cluster Config
   #- name: ng-1
