@@ -18,6 +18,10 @@ nodeGroups:
       publicKeyName: ec2-user
       allow: true
 
+cloudWatch: # Enable cloudwatch logging
+  clusterLogging:
+    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services, user ['*']
+
   #- name: ng-1
   #  instanceType: t2.micro
   #  desiredCapacity: 2
