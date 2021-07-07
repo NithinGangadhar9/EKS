@@ -16,12 +16,14 @@ nodeGroups:
       onDemandPercentageAboveBaseCapacity: 50
     ssh:
       publicKeyName: ec2-user
-      allow: true
+      allow: true # To allow SSH 
 
 cloudWatch: # Enable cloudwatch logging
   clusterLogging:
-    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services, user ['*']
+    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five types-['*']
 
+
+# Cluster Config
   #- name: ng-1
   #  instanceType: t2.micro
   #  desiredCapacity: 2
