@@ -2,7 +2,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: Ledn-Demo-1
+  name: Ledn-Dev-01
   region: ca-central-1
 
 nodeGroups:
