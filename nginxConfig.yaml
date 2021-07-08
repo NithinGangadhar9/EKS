@@ -2,7 +2,7 @@ Server
 {
   root /data/www; # Serving index.html
   location / {
-    try_files $uri $uri/ =404; # fall back to display a 404, after the attempt
+    try_files $uri $uri/ =404; # Fall back to display a 404, after the attempt
  }
  
  # serve any other image files from /data/images/

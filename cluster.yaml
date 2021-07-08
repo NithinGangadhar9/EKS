@@ -3,7 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: Ledn-Dev-01
-  region: ca-central-1
+  region: ca-central-1 # Canada Region
 
 nodeGroups:
   - name: Ledn-Dev01
@@ -11,11 +11,11 @@ nodeGroups:
     desiredCapacity: 2
     ssh:
       publicKeyName: ec2-user
-      allow: true
+      allow: true # Allow SSH 
 
 cloudWatch: # Enable CloudWatch logging 
   clusterLogging:
-    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services, user ['*'] Controller Manager, Scheduler
+    enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services['*'] -  Controller Manager, Scheduler
 
 
 
