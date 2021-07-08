@@ -1,0 +1,58 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: Ledn-Dev-Scale-1a
+  region: us-east-1
+
+nodeGroups:
+  - name: Ledn-Dev-Scale
+    instanceType: t2.micro
+    desiredCapacity: 1
+    maxSize: 10
+    availabilityZones: ["us-east-1a"]
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+    labels:
+      nodegroup-type: stateful-useast1a
+      instance-type: onDemand
+      client: ledn
+    ssh: 
+      publicKeyName: ec2-user
+      allow: true
+  - name: Ledn-Dev-Scale-1b
+    instanceType: t2.micro
+    desiredCapacity: 1
+    maxSize: 10
+    availabilityZones: ["us-east-1c"]
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+    labels:
+      nodegroup-type: stateful-east1d
+      instance-type: onDemand
+      client: ledn
+    ssh: # use existing EC2 key
+      publicKeyName: ec2-user
+      allow: true
+  
+  #stateful workload
+  #- name: scale-spot
+  #  desiredCapacity: 1
+  #  maxSize: 10
+  #  instancesDistribution:
+  #    instanceTypes: ["t2.small", "t3.small"]
+  #    onDemandBaseCapacity: 0
+  #    onDemandPercentageAboveBaseCapacity: 0
+  #  availabilityZones: ["us-east-1c", "us-east-1d"]
+  #  iam:
+  #    withAddonPolicies:
+  #      autoScaler: true
+  #  labels:
+  #    nodegroup-type: stateless-workload
+  #    instance-type: spot
+  #  ssh: 
+  #    publicKeyName: ec2-user
+
+#availabilityZones: ["us-east-1c", "us-east-1d"]
