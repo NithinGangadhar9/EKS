@@ -1,12 +1,12 @@
 Server 
 {
-  root /data/www; # Serving the image payload http://3.235.192.64/images/ledn-logo.png
+  root /data/www; # Serving index.html
   location / {
     try_files $uri $uri/ =404; # fall back to display a 404, after the attempt
  }
  
  # serve any other image files from /data/images/
   location ~* \.(png|jpg|jpeg)$ {
-    root /data/images/;
+    root /data/images/; # Serving the image payload http://3.235.192.64/images/ledn-logo.png
  }
 }
