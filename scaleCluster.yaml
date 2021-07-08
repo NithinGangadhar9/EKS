@@ -16,7 +16,7 @@ nodeGroups:
         autoScaler: true
     labels:
       nodegroup-type: stateful-useast1a
-      instance-type: onDemand
+      instance-type: t2.micro
       client: ledn
     ssh: 
       publicKeyName: ec2us-user
@@ -25,13 +25,13 @@ nodeGroups:
     instanceType: t2.micro
     desiredCapacity: 1
     maxSize: 10
-    availabilityZones: ["us-east-1b"]
+    availabilityZones: ["us-east-1d"]
     iam:
       withAddonPolicies:
         autoScaler: true
     labels:
       nodegroup-type: stateful-east1d
-      instance-type: onDemand
+      instance-type: t2.micro #onDemand
       client: ledn
     ssh: # use existing EC2 key
       publicKeyName: ec2us-user
