@@ -37,7 +37,7 @@ nodeGroups:
       publicKeyName: ec2us-user
       allow: true
   
-  #stateful workload
+  #stateless workload
   #- name: scale-spot
   #  desiredCapacity: 1
   #  maxSize: 10
