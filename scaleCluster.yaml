@@ -19,7 +19,7 @@ nodeGroups:
       instance-type: onDemand
       client: ledn
     ssh: 
-      publicKeyName: ec2-user
+      publicKeyName: ec2us-user
       allow: true
   - name: Ledn-Dev-Scale-1b
     instanceType: t2.micro
@@ -34,7 +34,7 @@ nodeGroups:
       instance-type: onDemand
       client: ledn
     ssh: # use existing EC2 key
-      publicKeyName: ec2-user
+      publicKeyName: ec2us-user
       allow: true
   
   #stateful workload
@@ -53,6 +53,6 @@ nodeGroups:
   #    nodegroup-type: stateless-workload
   #    instance-type: spot
   #  ssh: 
-  #    publicKeyName: ec2-user
-
+  #    publicKeyName: ec2us-user
+  #    allow: true
 #availabilityZones: ["us-east-1c", "us-east-1d"]

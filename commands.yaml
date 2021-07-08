@@ -1,6 +1,7 @@
 eksctl utils update-cluster-logging --config-file cluster.yaml --approve
 eksctl create cluster
 eksctl create cluster -f Desktop/DevOps/GitHub/EKS/cluster.yaml
+eksctl create nodegroup --config-file=Desktop/DevOps/GitHub/EKS/scaleCluster.yaml # Scale NodeGroups
 
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/master/k8s-yaml-templates/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/Ledn-Dev-01/;s/{{region_name}}/ca-canada-1/" | kubectl apply -f -
 
@@ -11,3 +12,7 @@ FluentBitReadFromHead='Off'
 [[ ${FluentBitReadFromHead} = 'On' ]] && FluentBitReadFromTail='Off'|| FluentBitReadFromTail='On'
 [[ -z ${FluentBitHttpPort} ]] && FluentBitHttpServer='Off' || FluentBitHttpServer='On'
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluent-bit-quickstart.yaml | sed 's/{{cluster_name}}/'${ClusterName}'/;s/{{region_name}}/'${LogRegion}'/;s/{{http_server_toggle}}/"'${FluentBitHttpServer}'"/;s/{{http_server_port}}/"'${FluentBitHttpPort}'"/;s/{{read_from_head}}/"'${FluentBitReadFromHead}'"/;s/{{read_from_tail}}/"'${FluentBitReadFromTail}'"/' | kubectl apply -f - 
+
+
+eksctl create nodegroup --config-file=Desktop/DevOps/GitHub/EKS/scaleCluster.yaml
+
