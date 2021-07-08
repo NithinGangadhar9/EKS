@@ -18,7 +18,7 @@ cloudWatch: # Enable CloudWatch logging
     enableTypes: ["api" , "audit" , "authenticator"] #To enable all the five services['*'] -  Controller Manager, Scheduler
 
 
-
+# Can be enabled for spot instance
 #nodeGroups:
 #  - name: ledn-demo-ng
 #    minSize: 2
