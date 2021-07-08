@@ -8,7 +8,7 @@ metadata:
 nodeGroups:
   - name: Ledn-Dev01
     instanceType: t2.micro
-    desiredCapacity: 3
+    desiredCapacity: 2
     ssh:
       publicKeyName: ec2-user
       allow: true
