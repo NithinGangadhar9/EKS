@@ -2,7 +2,7 @@ eksctl utils update-cluster-logging --config-file cluster.yaml --approve
 eksctl create cluster
 eksctl create cluster -f Desktop/DevOps/GitHub/EKS/cluster.yaml
 eksctl create nodegroup --config-file=Desktop/DevOps/GitHub/EKS/scaleCluster.yaml # Scale NodeGroups
-
+export AWS_PROFILE=profile_name # switch profile
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/master/k8s-yaml-templates/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/Ledn-Dev-01/;s/{{region_name}}/ca-canada-1/" | kubectl apply -f -
 
 ClusterName='Ledn-Dev-01'
