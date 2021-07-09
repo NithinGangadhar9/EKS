@@ -25,7 +25,7 @@ nodeGroups:
     instanceType: t2.micro
     desiredCapacity: 1
     maxSize: 10
-    availabilityZones: ["ca-central-1"]
+    availabilityZones: ["ca-central-1b"]
     iam:
       withAddonPolicies:
         autoScaler: true
