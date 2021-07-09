@@ -3,38 +3,38 @@ kind: ClusterConfig
 
 metadata:
   name: Ledn-Dev-Scale-1a
-  region: us-east-1
+  region: ca-central-1
 
 nodeGroups:
   - name: Ledn-Dev-Scale
     instanceType: t2.micro
     desiredCapacity: 1
     maxSize: 10
-    availabilityZones: ["us-east-1a"]
+    availabilityZones: ["ca-central-1a"]
     iam:
       withAddonPolicies:
         autoScaler: true
     labels:
-      nodegroup-type: stateful-useast1a
+      nodegroup-type: stateful-cacentrala
       instance-type: t2.micro
       client: ledn
     ssh: 
-      publicKeyName: ec2us-user
+      publicKeyName: ec2-user
       allow: true
   - name: Ledn-Dev-Scale-1b
     instanceType: t2.micro
     desiredCapacity: 1
     maxSize: 10
-    availabilityZones: ["us-east-1d"]
+    availabilityZones: ["ca-central-1"]
     iam:
       withAddonPolicies:
         autoScaler: true
     labels:
-      nodegroup-type: stateful-east1d
+      nodegroup-type: stateful-cacentral1b
       instance-type: t2.micro #onDemand
       client: ledn
     ssh: # use existing EC2 key
-      publicKeyName: ec2us-user
+      publicKeyName: ec2-user
       allow: true
   
   #stateless workload
