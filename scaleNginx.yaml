@@ -1,24 +1,27 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: ledn-autoscaler
-spec:
+metadata: 
+  name: nginx-autoscaler
+spec: 
+  selector: 
+    matchLabels:
+      run: nginx
+      servicetier: Dev
+      client: ledn
+      autoscaler: Enabled
   replicas: 1
-  template:
+  template: 
     metadata:
-      labels:
-        service: nginx
-        app: nginx
+      labels: 
+        run: nginx
+        servicetier: Dev
+        client: ledn
+        autoscaler: Enabled
     spec:
       containers:
-      - image: nginx
-        name: ledn-autoscaler
-        resources:
-          limits:
-            cpu: 300m
-            memory: 512Mi
-          requests:
-            cpu: 300m
-            memory: 512Mi
+        - name: nginx-autoscaler
+          image: nginx
+          ports:
+          - containerPort: 80
       nodeSelector:
-        instance-type: t2.micro
+        nodegroup-type: stateful-cacentral1b
